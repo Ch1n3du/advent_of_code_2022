@@ -2,6 +2,8 @@
 
 My solutions for [Advent of Code 2022](https://adventofcode.com/2022) in Rust.
 
+![Cool Gif](./misc/ghost_in_the_shell_typing.gif)
+
 ## Running the Code
 
 To run my solutions I attached tests.
