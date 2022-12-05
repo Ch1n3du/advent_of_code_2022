@@ -1,4 +1,4 @@
-fn solution_1(input: &str) -> u32 {
+fn part_1(input: &str) -> u32 {
     let mut score = 0;
 
     for line in input.lines() {
@@ -31,7 +31,7 @@ fn solution_1(input: &str) -> u32 {
     score
 }
 
-fn solution_2(input: &str) -> u32 {
+fn part_2(input: &str) -> u32 {
     let mut score = 0;
 
     for line in input.lines() {
@@ -68,13 +68,11 @@ fn solution_2(input: &str) -> u32 {
 mod tests {
     #[test]
     fn day_2_part_1() {
-        let res = crate::solve_file("02", super::solution_1);
-        panic!("Day two result :'{res}'")
+        let res = crate::solve_file(2, 1, super::part_1);
     }
 
     #[test]
     fn day_2_part_2() {
-        let res = crate::solve_file("02", super::solution_2);
-        panic!("Day two result :'{res}'")
+        let res = crate::solve_file(2, 2, super::part_2);
     }
 }

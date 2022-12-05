@@ -1,4 +1,4 @@
-use advent_of_code_2022::day_01;
+use advent_of_code_2022::solutions::day_01;
 
 fn main() {
     println!("Hello, world!");

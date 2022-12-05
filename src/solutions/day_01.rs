@@ -36,7 +36,7 @@
 
 //! Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
-pub fn solve_day_01_part_1(input: &str) -> u32 {
+pub fn part_1(input: &str) -> u32 {
     let mut max_calories: u32 = 0;
     let mut curr_calories: u32 = 0;
 
@@ -54,7 +54,7 @@ pub fn solve_day_01_part_1(input: &str) -> u32 {
     max_calories
 }
 
-pub fn solve_day_01_part_2(input: &str) -> u32 {
+pub fn part_2(input: &str) -> u32 {
     let mut max_calories = [0; 3];
     let mut curr_calories = 0;
 
@@ -77,12 +77,11 @@ pub fn solve_day_01_part_2(input: &str) -> u32 {
 mod tests {
     #[test]
     fn solve_part_1() {
-        let _res = crate::solve_file("01", super::solve_day_01_part_1);
+        let res = crate::solve_file(1, 1, super::part_1);
     }
 
     #[test]
     fn solve_part_2() {
-        let res = crate::solve_file("01", super::solve_day_01_part_2);
-        panic!("{res:?}")
+        let res = crate::solve_file(1, 2, super::part_2);
     }
 }

@@ -35,11 +35,7 @@ pub fn part_2(input: &str) -> u32 {
 
         for item in elf_a {
             if elf_b.contains(&item) && elf_c.contains(&item) {
-                println!("Start: {index}");
-                println!("Common: '{item}'");
-                println!("Priority: '{}'", get_priority(item));
                 total_priority += get_priority(item);
-                println!("Total: {total_priority}");
             }
         }
     }
@@ -50,13 +46,11 @@ pub fn part_2(input: &str) -> u32 {
 mod tests {
     #[test]
     fn part_1() {
-        let res = crate::solve_file("03", super::part_1);
-        panic!("Day 3 part 1: {res}")
+        let res = crate::solve_file(3, 1, super::part_1);
     }
 
     #[test]
     fn part_2() {
-        let res = crate::solve_file("03", super::part_2);
-        panic!("Day 3 part 2: {res}")
+        let res = crate::solve_file(3, 2, super::part_2);
     }
 }
