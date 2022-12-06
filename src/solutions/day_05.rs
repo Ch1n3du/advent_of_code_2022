@@ -1,4 +1,4 @@
-use std::{collections::VecDeque, result};
+use std::collections::VecDeque;
 
 #[derive(Debug)]
 struct Move {
@@ -55,11 +55,11 @@ fn parse(input: &str) -> Program {
         stacks.push(VecDeque::new())
     }
 
-    let mut stack_end = 0;
+    let mut stack_section_end = 0;
 
     for (i, line) in lines.iter().enumerate() {
         if !line.contains("[") {
-            stack_end = i;
+            stack_section_end = i;
             break;
         }
 
@@ -72,7 +72,7 @@ fn parse(input: &str) -> Program {
     }
 
     let mut moves = Vec::new();
-    for move_line in &lines[stack_end + 2..] {
+    for move_line in &lines[stack_section_end + 2..] {
         let parts: Vec<&str> = move_line.split(" ").collect();
 
         let amount = parts[1].parse::<usize>().unwrap();
@@ -113,6 +113,6 @@ mod tests {
     #[test]
     fn test_part_2() {
         let res = crate::solve_file(5, 2, super::part_2);
-        panic!("{res:?}")
+        // panic!("{res:?}")
     }
 }
