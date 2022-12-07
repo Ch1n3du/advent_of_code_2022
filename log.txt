@@ -1,0 +1,35 @@
+
+running 15 tests
+test solutions::day_01::tests::solve_part_1 ... ok
+test solutions::day_01::tests::solve_part_2 ... ok
+test solutions::day_02::tests::day_2_part_1 ... ok
+test solutions::day_02::tests::day_2_part_2 ... ok
+test solutions::day_04::tests::test_part_1 ... ok
+test solutions::day_05::tests::test_part_1 ... ok
+test solutions::day_05::tests::can_parse ... ok
+test solutions::day_07::tests::test_part_1 ... FAILED
+test solutions::day_07::tests::test_part_2 ... FAILED
+test solutions::day_05::tests::test_part_2 ... ok
+test solutions::day_04::tests::test_part_2 ... ok
+test solutions::day_06::tests::test_part_1 ... ok
+test solutions::day_03::tests::part_1 ... ok
+test solutions::day_03::tests::part_2 ... ok
+test solutions::day_06::tests::test_part_2 ... ok
+
+failures:
+
+---- solutions::day_07::tests::test_part_1 stdout ----
+Day 07, Part 01 Solution: 48381165
+thread 'solutions::day_07::tests::test_part_1' panicked at 'explicit panic', src/solutions/day_07.rs:171:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- solutions::day_07::tests::test_part_2 stdout ----
+thread 'solutions::day_07::tests::test_part_2' panicked at 'not yet implemented', src/solutions/day_07.rs:176:9
+
+
+failures:
+    solutions::day_07::tests::test_part_1
+    solutions::day_07::tests::test_part_2
+
+test result: FAILED. 13 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+

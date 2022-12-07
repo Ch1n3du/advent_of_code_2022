@@ -1,10 +1,8 @@
+use advent_of_code_2022::solutions::day_05::part_1;
+
 fn main() {
-    println!("Hello, world!");
-    // let input = "100\n200\n \n100";
-    // println!("{:?}", day_01::solve_day_01_part_2(input));
-    println!("{}", 'a' as u8);
-    println!("{}", 'A' as u8);
-    for i in 0..1 {
-        println!("{i}")
-    }
+    // let src = std::fs::read_to_string("inputs/05_xxl.txt").unwrap();
+    // println!("{:?}", part_1(&src));
+    let path = "/a/b/c";
+    println!("{:?}", path.split("/").collect::<Vec<&str>>())
 }

@@ -21,6 +21,7 @@ impl Program {
             }
         }
 
+        // Get the stack tops
         self.stacks
             .iter()
             .map(|stack| *stack.back().unwrap())
@@ -29,15 +30,19 @@ impl Program {
 
     fn run_part_2(&mut self) -> Vec<char> {
         for &Move { amount, from, to } in self.moves.iter() {
+            // Create a Vector to store popped values that are to be reversed
             let mut to_be_moved = Vec::new();
 
             for _ in 0..amount {
                 let value = self.stacks[from - 1].pop_back().unwrap();
                 to_be_moved.push(value);
             }
+
+            // Push the Vector reversed to the destination stack
             self.stacks[to - 1].extend(to_be_moved.into_iter().rev())
         }
 
+        // Get the stack tops
         self.stacks
             .iter()
             .map(|stack| *stack.back().unwrap())
@@ -48,6 +53,7 @@ impl Program {
 fn parse(input: &str) -> Program {
     let mut lines: Vec<String> = input.lines().map(|s| s.to_string()).collect();
 
+    // Get the number of stacks by checking the length of the first line
     let no_of_stacks = (lines[0].len() + 1) / 4;
     let mut stacks: Vec<VecDeque<char>> = Vec::with_capacity(no_of_stacks);
 
@@ -55,11 +61,14 @@ fn parse(input: &str) -> Program {
         stacks.push(VecDeque::new())
     }
 
+    // Create a variable to store the end of stack section after parsing it.
     let mut stack_section_end = 0;
 
     for (i, line) in lines.iter().enumerate() {
         if !line.contains("[") {
-            stack_section_end = i;
+            // Add two to the index to account for blank lines
+            stack_section_end = i + 2;
+            // println!("Stack Section End: {}", stack_section_end);
             break;
         }
 
@@ -71,8 +80,9 @@ fn parse(input: &str) -> Program {
         }
     }
 
+    // Parse the moves by splitting on space.
     let mut moves = Vec::new();
-    for move_line in &lines[stack_section_end + 2..] {
+    for move_line in &lines[stack_section_end..] {
         let parts: Vec<&str> = move_line.split(" ").collect();
 
         let amount = parts[1].parse::<usize>().unwrap();
@@ -85,12 +95,12 @@ fn parse(input: &str) -> Program {
     Program { stacks, moves }
 }
 
-fn part_1(input: &str) -> Vec<char> {
+pub fn part_1(input: &str) -> Vec<char> {
     let mut program = parse(input);
     program.run_part_1()
 }
 
-fn part_2(input: &str) -> Vec<char> {
+pub fn part_2(input: &str) -> Vec<char> {
     let mut program = parse(input);
     program.run_part_2()
 }
